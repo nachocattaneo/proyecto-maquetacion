@@ -1,0 +1,310 @@
+
+
+/* NORMALIZACION: */
+
+*{ /*con el * estamos modificando TODA la pagina web*/
+padding: 0;
+margin: 0;
+box-sizing: border-box; /*Esto mantiene el ancho y alto a pesar de padding y border que pongamos*/
+font-family: "Inconsolata", monospace;
+list-style: none; /*No va a haber iconos en las listas, saca puntos y decoración*/
+text-decoration: none; /*Esto quita el subrayado en los links*/
+color: white;
+
+}
+
+.body {
+    background-color: black;
+}
+
+header {
+    position: fixed; /*Esto hace que el header se quede fijo en la parte superior*/
+    right: 0;
+    top: 0; /*Con esta condicion y la anterior, el header va a quedar bien arriba y bien a la derecha*/
+    z-index: 100; /*Esto hace que el header se muestre por encima de todo*/
+    width: 100%;
+    display: flex; /*Esto hará que los elementos se pongan en linea. En este caso son dos elementos, el logo y la lista; por lo
+    tanto, la lista vendrá luego del logo*/
+    align-items: center; /*Va a centrar ambos elementos (logo y lista), por lo tanto el logo quedará centrado con respecto a la
+    lista*/
+    justify-content: space-between; /*con esta justificacion de contenido, alinea los elementos en el eje x del flex container*/
+    padding: 15px 3%; /*El primer valor modifica el eje vertical y el segundo el eje horizontal. Puse el horizontal en % así queda
+    en 3% independientemente del ancho de la pantalla*/
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800; /*Esto es para el grosor de la tipografía*/
+}
+
+.navlist { /*Va a modificar la lista, pero el general de la lista, no los ítems dentro de ella (la cajita)*/
+    display: flex; /*Me va a acomodar los items de la lista "ul" se pongan en línea*/
+}
+
+.navlist a { /*Ahora vamos a modificar los elementos "a" (o sea los links) del navlist*/
+    margin-left: 60px; /*Nos sirve para separar las palabras*/
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; /*Es un borde inferior transparente, como si fuese un subrayado*/
+    transition: all 0.3s ease 0.1s; /*Esto es para animar TODAS las caracteristicas del navlist a*/    
+}
+
+.navlist a:hover {
+    border-bottom: 2px solid white; /*Subrayado blanco que aparecera cuando hagamos el hover con el mouse*/
+}
+
+#menu-icon {
+    display: none; /*Lo pongo en none para que solo se vea cuando la pagina esté collapsed horizontalmente*/ 
+}
+#menu-icon {
+    font-size: 35px;
+    z-index: 101; /*Para que quede por encima del header que le habiamos puesto 100*/
+    cursor: pointer; /*Para que aparezca la manito cuando pasamos por encima del icono*/
+}
+
+#menu-toggle {
+    display: none; /*Siempre lo voy a dejar en display none porque NUNCA voy a querer que se vea ese checkbox, es solo
+    para el truco*/
+}
+
+.menu-icon-action{
+    display: none; /*None para que no se le pueda hacer click*/
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(245.59deg, #7d7a1f 0%, #4a3d0a 25%, #191200 75%);
+    min-height: 100vh; /*Va a ser exactamente igual de alto que la ventana de navegación porque le pusimos 100*/
+    position: relative; /*Para que sea relativo al contenedor, nos permite usar top bottom left y right*/
+    display: grid; /*Para que el hero se pueda dividir en dos columnas*/
+    grid-template-columns: 1fr 1fr; /*Establecimos dos columnas con este parametro*/
+    align-items: center; /*Para alinear verticalmente el hero*/
+    gap: 2rem; /*Para que haya espacio de 2 rem (o sea dos veces el tamaño de la letra) entre las columnas*/
+
+}
+
+section {
+    padding: 0% 6%;
+}
+
+.hero-img img{
+    width: 400px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 1s ease;
+}
+
+.hero-img img:hover {
+    width: 440px;
+    opacity: 0.8;
+
+}
+
+.hero-text {
+    margin-left: 20px;
+}
+
+.hero-text h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text h4 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}   
+
+.hero-text h5{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+font-size: 80%; /*El 80% del contenedor padre */
+margin-bottom: 40px;
+line-height: 1.9;
+
+}
+
+.hero-text a {
+    display: inline-block; /*Si bien ya estaba en linea, esto me va a permitir darle un ancho y un alto */
+    background-color: rgb(95, 94, 94);
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px; /*con esto redondeamos la cajita*/
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px)
+}
+
+.hero-text a.catalogo {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+  
+}
+
+.hero-text a.catalogo i{
+    /* vertical-align: middle; */
+    margin-right: 7px;
+    
+}
+
+.icons { /*Esta seria la cajita de iconos toda junta, o sea modificamos a toda esa sección*/
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+
+}
+
+.icons i{ /*Ahora vamos a modificar los íconos propiamente dichos*/
+display: block;
+margin: 26px 0;
+font-size: 24px;
+transition: all 0.5s ease;
+}
+
+.icons i:hover {
+    color: #4d4d4d;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #21383da7;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+  
+}
+
+.scroll-down i:hover {
+    transform: translateY(-8px)
+}
+
+/* Ahora vamos a hacer que la página sea responsive */
+
+@media (max-width: 1072px) {/*Vamos a tomar 1072 como tamaño en pixeles para hacer el primer breakpoint para hacer responsive
+    la pagina porque ahí es donde se rompe el texto del "p"*/
+
+ .hero-text p{
+    font-size: 70%;
+ }
+}
+
+@media (max-width: 992px) {/*Vamos a tomar 992 como tamaño en pixeles para hacer el segundo breakpoint para hacer responsive
+    la pagina porque ahí un parámetro lódico para cuando se usa una tablet"*/
+ section {
+    padding: 0 3%;
+    transition: 0.2s;
+ }
+ .hero-text {
+    padding-top: 0;
+ }
+
+ .hero-img{
+    text-align: center;
+ }
+
+ .hero-img img{
+    width: 80%;
+    margin: 10% 0 0 10%;
+ }
+ 
+ .icons {
+    display: none;
+ }
+
+ .hero-text p{
+    font-size: 70%;
+ }
+
+ .scroll-down {
+    display: none;
+ }
+}
+
+@media (max-width: 778px){
+    .menu-icon-action{
+        display: block;
+    }
+    #menu-icon {
+        display: block;
+    }
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+.hero-img img {
+    margin: 50px;
+    width: 60%;
+}
+.hero {
+    height: 100%;
+   gap: 1rem;
+   grid-template-columns: 1fr;
+}
+
+.navlist {
+    position: absolute; /*Posicion independiente del resto de todos los elementos, se alinea al arriba de todo a la izquierda*/
+    top: 100%; /*Queda al 100% arriba de todo su contendor que es el header*/
+    right: -100%; /*Con esto lo mandé tan a la derecha que lo escondí, a proposito para taparlo*/
+    width: 200px; /*Lo voy comprimiendo un poco porque ocupaba mucho ancho*/
+    height: 180px;
+    background-color: #330303ed;
+    display: flex; /*Para determinar qué tipo de cajita queremos, lo especificamos en la linea e abajo*/
+    flex-direction: column; /*Ahora lo tenemos en columna en vez de en fila*/
+    align-items: center; /*Para que queden centrados horizontalmente (eje x) dentro de la cajita*/
+    padding: 30px 20px;
+    transition: all 0.2s ease-out;
+}
+
+.navlist a {
+    display: block;
+    margin: 7px 0;
+}
+
+#menu-toggle:checked + label.menu-icon-action + ul{
+    right: 0;
+}
+
+}
+
+@media (max-width: 400px) {
+
+    .logo{
+        font-size: 20px;
+    }
+
+    .break {
+        display: none;
+    }
+
+    .hero-text h1{
+        font-size: 40px;
+    }
+
+}
